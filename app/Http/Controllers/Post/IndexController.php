@@ -11,6 +11,8 @@ use App\Http\Filters\PostFilter;
 class IndexController extends BaseController // Однометодные контроллеры
 {
     public function __invoke(FilterRequest $request) {
+        // $this->authorize('view', auth()->user());
+
         $data = $request->validated();
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
